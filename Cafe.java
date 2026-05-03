@@ -7,6 +7,17 @@ public class Cafe extends Building implements CafeRequirements {
     private int nCups;
     private boolean elevator;
 
+    /**
+     * Contructor 
+     * @param name The name of the building / cafe
+     * @param address The address of the building / cafe  
+     * @param nfloors The number of floors the building / cafe has 
+     * @param nCoffeeOunces The number of ounces in the coffee within the cafe 
+     * @param nSugarPackets The number of sugar packets within the coffee 
+     * @param nCreams The number of creames within the coffee 
+     * @param nCups The amound of cuprs the cafe has 
+     * @param elevator If the building / cafe has an elevator 
+     */
     public Cafe(String name, String address, int nfloors, int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups, boolean elevator) {
         super(name, address, nfloors);
         this.nCoffeeOunces = nCoffeeOunces;
@@ -17,11 +28,22 @@ public class Cafe extends Building implements CafeRequirements {
         System.out.println("You have built a cafe: ☕");
     }
     
+    /**
+     * @return the content of the class in string form by caling on the parents toString 
+     */
     public String toString(){
         return(super.toString());
     }
 
-    // Overloaded contructer in case the user is unsure of how much coffee in onces that the user wants and that they also dont know the amount of cream that they want  // 
+    /**
+     * Overloaded contructer in case the user is unsure of how much coffee in onces that the user wants and that they also dont know the amount of cream that they want
+     * @param name the name of the building / cafe
+     * @param address The address of the building / cafe  
+     * @param nfloors The number of floors the building / cafe has 
+     * @param nSugarPackets The number of sugar packets within the coffee 
+     * @param nCups The amound of cuprs the cafe has 
+     * @param elevator If the building / cafe has an elevator 
+     */
     public Cafe(String name, String address, int nfloors, int nSugarPackets, int nCups, boolean elevator){
         this(name, address, nfloors, 16, nSugarPackets, 4, nCups, elevator);
     }
@@ -44,7 +66,12 @@ public class Cafe extends Building implements CafeRequirements {
         }
     }
 
-    // This overload happens in case the intergers that you are requesting are really just parts/floars of what you want // 
+    /**
+     * This overload happens in case the intergers that you are requesting are really just parts/floars of what you want
+     * @param size is the size of the coffee they want 
+     * @param nSugarPackets how many sugar packets they want
+     * @param nCreams how much cream they want in their coffee
+     */
     public void sellCoffee(float size, float nSugarPackets, float nCreams){
         if(this.nCoffeeOunces >= size && this.nSugarPackets >= nSugarPackets && this.nCreams >= nCreams){
             this.nCoffeeOunces -= size;
@@ -75,12 +102,16 @@ public class Cafe extends Building implements CafeRequirements {
 
     @Override
     /**
-    * This method would should the user the options within the building (house in this case)
+    * This method would should the user the options within the building (cafe in this case)
     */
     public void showOptions() {
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + sellCoffee(int size, int nSugarPackets, int nCreams)");
     }
 
+    /**
+    * This method would should the user the options within the building (house in this case)
+    * @param floorNum This would take you to the floor number acording to the method in the building class however it is override here due to the cafe having restricted access for any floor this isnt floor number 1.  
+    */
     public void goToFloor(int floorNum) {
         if (this.elevator = true){
             if (super.activeFloor == -1) {

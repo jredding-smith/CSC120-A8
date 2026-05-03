@@ -24,11 +24,21 @@ public class House extends Building implements HouseRequirements {
     this.elevator = elevator;
   }
 
-  // This is an overloading the constuctor in case the user doesnt know if the house they are looking at has an elevator or not // 
+  
+  
+  /**
+   * This is an overloading the constuctor in case the user doesnt know if the house they are looking at has an elevator or not 
+   * @param name The name of the building / house 
+   * @param address The address of the building / house 
+   * @param nfloors The number of floors inside the building / house 
+   */ 
   public House(String name, String address, int nfloors){
     this(name, address, nfloors, false);
   }
 
+    /**
+     * @return the content of the class in string form by caling on the parents toString 
+     */
   public String toString(){
     return(super.toString() + System.lineSeparator() + "The resident(s) of this house is/are:" + this.residents + System.lineSeparator() + "Does it have a dinning hall?:" + this.hasDiningRoom);
   }
@@ -38,7 +48,6 @@ public class House extends Building implements HouseRequirements {
   /**
    * Accessor for hasDiningRoom
    * @return : True or false dependent on if the house has a dining room. 
-   * Currently set to true 
    */
   public boolean hasDiningRoom(){
     return hasDiningRoom;

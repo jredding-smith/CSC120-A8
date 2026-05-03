@@ -32,9 +32,11 @@ public class CampusMap {
         return b;
     }
 
+    /**
+     * @return The content of the class by foing it in a list kind of way, as this toString is for a map and a list presenation of a map makes more sense. The list being all of the places on the map and thier information 
+     */
     public String toString() {
         String mapString = "DIRECTORY of BUILDINGS";
-
         for (int i = 0; i < this.buildings.size(); i ++) {
             mapString += "\n  " + (i+1) + ". "+ this.buildings.get(i).getName() + " (" + this.buildings.get(i).getAddress() + ")";
         }

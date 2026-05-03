@@ -20,15 +20,27 @@ public class Library extends Building implements LibraryRequirements {
       System.out.println("You have built a library: 📖");
     }
 
-    // Overloading code in case the user can not remeber the amount of floors the lirary has and thus we assume a general level of floors  // 
+    /**
+     * Overloading contructor in case the user can not remeber the amount of floors the lirary has and thus we assume a general level of floors
+     * @param name The name of the building / library
+     * @param address The address of the building / library 
+     */
     public Library(String name, String address) {
       this(name, address, 5);
     }
 
-    // // 
-    public Library( String address, int nfloors) {
+    /**
+     * Overloading the conntructor in case the user does not remeber the name of the library but can recall the adress and how many floors the library has 
+     * @param address The address of the building / library 
+     * @param nfloors he number of floors inside the building / library 
+     */
+    public Library(String address, int nfloors) {
       this("<Name Unknown>", address, nfloors);
     }
+
+    /**
+     * @return the content of the class in string form by caling on the parents toString 
+     */
     public String toString(){
       return(super.toString());
     }
@@ -44,7 +56,7 @@ public class Library extends Building implements LibraryRequirements {
     /**
      * This will rmeove a tittle from the collection in the library 
      * @param title title that is going to be removed 
-     * @return Ruturns the title that you are removing and has context 
+     * @return  the title that you are removing and has context 
      */
 
     public String removeTitle(String title){
@@ -55,6 +67,7 @@ public class Library extends Building implements LibraryRequirements {
     /**
      * Checkout out a book 
      * @param title title of the book that you want to check out
+     * Prints the title of the book you checked out with context 
      */
     public void checkOut(String title){
       this.collection.replace(title, true, false);
@@ -64,6 +77,7 @@ public class Library extends Building implements LibraryRequirements {
     /**
      * Returns a book that has already been checked out 
      * @param title of the book you are returning 
+     * Prints the title of the book you returned with context 
      */
     public void returnBook(String title){
       this.collection.replace(title, false, true);
@@ -87,7 +101,8 @@ public class Library extends Building implements LibraryRequirements {
     }
 
       /**
-       * 
+       * @param Title of the book you want to check to see if  the library collection holds it 
+       * @return Will return the book title if the collection contains the title. WIll also print that the collection has the title if the book is in the title. Alternativly, if the book is not within the collltion, a print statement will explain that with the return being false in this instance.        
        */
       public boolean containsTitle(String title){
         if (this.collection.containsKey(title)){
